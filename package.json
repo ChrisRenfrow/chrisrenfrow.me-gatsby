@@ -90,7 +90,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/home/crenfrow/work/personal/chrisrenfrow.me/tsconfig.test.json"
+        "tsConfigFile": "./tsconfig.test.json"
       }
     }
   },
