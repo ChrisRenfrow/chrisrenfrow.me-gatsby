@@ -16,16 +16,25 @@ class Bio extends React.Component {
           marginBottom: rhythm(2.5),
         }}
       >
-        {/* <img
+      <div style={{
+        width: rhythm(1.5),
+        height: rhythm(1.5),
+        marginRight: rhythm(1 / 2),
+        marginBottom: '0px', 
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: '50%',
+      }}>
+        <img
           src={profilePic}
           alt={`Chris Renfrow`}
           style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            width: rhythm(1.5),
-            height: rhythm(2),
+            height: 'auto',
+            width: rhythm(2),
+            marginTop: '-25%',
           }}
-        /> */}
+        />
+      </div>
         <p>
           A blog by <strong>Chris Renfrow</strong>.{' '}
           <a href="https://twitter.com/crenfrow42">
