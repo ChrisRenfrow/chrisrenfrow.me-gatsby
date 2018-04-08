@@ -5,7 +5,7 @@ module.exports = {
     description: 'My blog written using React and Gatsby, borrowed heavily from the Gatsby Starter Blog',
     siteUrl: 'http://chrisrenfrow.me',
   },
-  pathPrefix: '/chris-renfrow-blog',
+  pathPrefix: '/app',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
