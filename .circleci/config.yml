@@ -1,0 +1,46 @@
+version: 1
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+        name: Update npm
+        command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+        name: Install npm
+        command: npm install
+      - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+          - node_modules
+  test:
+    # environment:
+    #   CODECLIMATE_REPO_TOKEN: 9349414f3eab7c43bd916b8975c5656846a0b63b4cc587e28ed33fef69cd00e7
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      # - run:
+      #     name: Setup Code Climate test-reporter
+      #     command: |
+      #       sudo npm install -g codeclimate-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            npm run test
+            # codeclimate < coverage/lcov.info
+workflows:
+  version: 1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master

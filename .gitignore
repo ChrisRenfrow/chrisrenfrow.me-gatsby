@@ -1,3 +1,7 @@
+public
+.gatsby-context.js
+.cache
+
 # Logs
 logs
 *.log
