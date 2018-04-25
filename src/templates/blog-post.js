@@ -26,6 +26,11 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{

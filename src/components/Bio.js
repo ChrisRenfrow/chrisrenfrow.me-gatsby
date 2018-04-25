@@ -36,10 +36,7 @@ class Bio extends React.Component {
         />
       </div>
         <p>
-          A blog by <strong>Chris Renfrow</strong>.{' '}
-          <a href="https://twitter.com/crenfrow42">
-            He's on Twitter too!
-          </a>
+          A blog by <a href="/about"><strong>Chris Renfrow</strong></a>.{' '}
         </p>
       </div>
     )
