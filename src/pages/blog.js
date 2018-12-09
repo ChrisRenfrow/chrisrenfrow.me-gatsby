@@ -6,9 +6,9 @@ import { Helmet } from "react-helmet"
 import Layout from "../components/layout"
 
 export default ({ data }) => (
-    <Layout>
-        <h3>Whoops!</h3>
-        <p>Looks like the page you're looking for doesn't exist yet.</p>
+    <Layout pageTitle="Blog">
+        <p>Home to my personal blog.</p>
+        <p>Coming soon!</p>
         <p><Link to="/">Go Home</Link></p>
     </Layout>
 )

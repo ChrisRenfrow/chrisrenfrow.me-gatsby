@@ -1,10 +1,12 @@
-# chrisrenfrow.me
-### Just making cool stuff and put it on the internet
-[![CircleCI](https://circleci.com/gh/ChrisRenfrow/chrisrenfrow.me.svg?style=svg)](https://circleci.com/gh/ChrisRenfrow/chrisrenfrow.me)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+# gatsby-starter-hello-world
+Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site.
 
+Install this starter (assuming Gatsby is installed) by running from your CLI:
+```
+gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world
+```
 
-This is a complete rebuild of my old site which was basically just a Ghost blogging server with some UI tweaks. Built from the ground-up using React and hosting via Heroku. I'm checking out CircleCI and CodeClimate because I need to get used to this kind of develop/deploy life-cycle.
+Or [view the live demo here](https://gatsby-starter-hello-world-demo.netlify.com/).
 
-Thanks for dropping by.
+## Running in development
+`gatsby develop`

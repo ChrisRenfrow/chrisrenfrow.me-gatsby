@@ -1,57 +1,36 @@
 module.exports = {
-  siteMetadata: {
-    title: 'Chris Renfrow\'s Blog',
-    author: 'Chris Renfrow',
-    description: 'My blog written using React and Gatsby, borrowed heavily from the Gatsby Starter Blog',
-    siteUrl: 'http://chrisrenfrow.me',
-  },
-  pathPrefix: '/app',
-  plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+    siteMetadata: {
+        title: `Chris Renfrow`,
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
+    plugins: [
+        `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-plugin-manifest`,
             options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
+                name: `Chris Renfrow`,
+                short_name: `Chris Renfrow`,
+                start_url: `/`,
+                background_color: `#fff`,
+                theme_color: `#fff`,
+                display: `minimal-ui`,
+                icon: `src/images/gatsby-logo.png`,
+            }
+        },
+        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-source-filesystem`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+                name: `src`,
+                path: `${__dirname}/src/`,
             },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
-  ],
+        },
+        `gatsby-transformer-remark`,
+        `gatsby-plugin-emotion`,
+        {
+            resolve: `gatsby-plugin-typography`,
+            options: {
+                pathToConfigModule: `src/utils/typography`,
+            },
+        },
+    ],
 }
