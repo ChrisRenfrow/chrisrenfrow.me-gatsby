@@ -48,9 +48,10 @@ export default ({ pageTitle, children }) => (
                                 margin: `${rhythm(1)} auto`,
                             }}
                         >
-                            <ListLink to="/about/">About</ListLink>
-                            <ListLink to="/blog/">Blog</ListLink>
-                            <ListLink to="/projects/">Projects</ListLink>
+                            <ListLink to="/">Home</ListLink>
+                            {/* <ListLink to="/about/">About</ListLink> */}
+                            {/* <ListLink to="/blog/">Blog</ListLink> */}
+                            {/* <ListLink to="/projects/">Projects</ListLink> */}
                         </ul>
                         <Link to="/">
                             <h2
