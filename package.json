@@ -6,7 +6,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy:public": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
@@ -29,5 +30,8 @@
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
     "typography-theme-stern-grove": "^0.16.18"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
