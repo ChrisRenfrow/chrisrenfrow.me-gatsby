@@ -33,6 +33,9 @@ jobs:
     - image: circleci/node:latest
     working_directory: /tmp/web
     steps:
+    - add_ssh_keys:
+        fingerprints:
+          - "42:ef:ba:37:87:eb:32:98:02:b1:68:82:04:58:25:6e"
     - attach_workspace:
         at: /tmp/web
     - run:
@@ -41,7 +44,7 @@ jobs:
           git checkout gh-pages
           cp -r public/* .
           rm -rf public/
-          git commit -am "Automated deploy - ${CIRCLE_SHA1}"
+          git commit -am "Automated deploy from build \#${CIRCLE_BUILD_NUM}"
           git push origin gh-pages
 
 workflows:
