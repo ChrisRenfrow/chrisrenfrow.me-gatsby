@@ -40,7 +40,7 @@ jobs:
         command: |
           git checkout gh-pages
           ls
-          mv -f public/* .
+          cp -r public/* .
           git diff
 
 workflows:
