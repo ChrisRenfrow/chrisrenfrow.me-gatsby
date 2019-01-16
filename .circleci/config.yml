@@ -37,7 +37,7 @@ jobs:
     - run:
         name: Github Pages Deploy
         command: |
-          pwd
+          pwd && ls
 
 workflows:
   version: 2
