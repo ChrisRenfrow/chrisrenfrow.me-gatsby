@@ -7,8 +7,8 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy:public": "gatsby build && gh-pages -d public",
-    "gh-pages-help": "gh-pages --help"
+    "deploy": "gh-pages -d public",
+    "ci": "yarn build"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",

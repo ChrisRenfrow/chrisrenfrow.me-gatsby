@@ -4,4 +4,4 @@ My personal website.
 
 ---
 
-<sup><sub>Made with [Gatsby](https://www.gatsbyjs.org/) :heart:</sub></sup>
+<sub><sup>Made with [Gatsby](https://www.gatsbyjs.org/) :heart:</sup></sub>
