@@ -1,49 +1,57 @@
 version: 2
 
 jobs:
+
   build:
     docker:
     - image: circleci/node:latest
+    working_directory: /tmp/build
     steps:
     - checkout
-
     - restore_cache:
         keys:
         - dependencies-{{ checksum "package.json" }}
         - dependencies-
 
     - run:
-        command: |
-          yarn
+        command: yarn
 
     - save_cache:
         paths:
         - node_modules
         key: dependencies-{{ checksum "package.json" }}
     - run:
-        command: yarn ci && ls
+        command: yarn ci
+    - persist_to_workspace:
+        root: /tmp/build
+        paths:
+        - public
+
   deploy:
     docker:
     - image: circleci/node:latest
     steps:
     - checkout
     - run:
-        command: yarn deploy
+        name: Github Pages Deploy
+        command: |
+          ls ~/web
 
 workflows:
   version: 2
-
-  ci:
-    jobs:
-    - build
 
   build:
     jobs:
     - build:
         filters:
           branches:
-            only: master
+            only: 
+            - master
+            - /feature-.*/
+
     - deploy:
+        requires:
+        - build
         filters:
           branches:
             only: master

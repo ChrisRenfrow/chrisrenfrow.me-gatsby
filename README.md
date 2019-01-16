@@ -1,5 +1,7 @@
 # ChrisRenfrow.me
 
+[![CircleCI](https://circleci.com/gh/ChrisRenfrow/chrisrenfrow.me/tree/master.svg?style=svg)](https://circleci.com/gh/ChrisRenfrow/chrisrenfrow.me/tree/master)
+
 My personal website.
 
 ---
