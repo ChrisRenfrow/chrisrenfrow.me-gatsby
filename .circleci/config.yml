@@ -26,6 +26,7 @@ jobs:
         root: /tmp/web
         paths:
         - public/*
+        - .git/*
 
   deploy:
     docker:
@@ -37,7 +38,10 @@ jobs:
     - run:
         name: Github Pages Deploy
         command: |
-          pwd && ls public
+          git checkout gh-pages
+          ls
+          mv public/* .
+          git diff
 
 workflows:
   version: 2
