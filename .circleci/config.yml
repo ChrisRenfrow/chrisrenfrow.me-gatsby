@@ -30,13 +30,14 @@ jobs:
   deploy:
     docker:
     - image: circleci/node:latest
+    working_directory: /tmp/web
     steps:
     - attach_workspace:
         at: /tmp/web
     - run:
         name: Github Pages Deploy
         command: |
-          ls public
+          pwd
 
 workflows:
   version: 2
