@@ -5,7 +5,7 @@ jobs:
   build:
     docker:
     - image: circleci/node:latest
-    working_directory: /tmp/build
+    working_directory: ~/web
     steps:
     - checkout
     - restore_cache:
@@ -23,7 +23,7 @@ jobs:
     - run:
         command: yarn ci
     - persist_to_workspace:
-        root: /tmp/build
+        root: ~/web
         paths:
         - public
 
@@ -31,11 +31,12 @@ jobs:
     docker:
     - image: circleci/node:latest
     steps:
-    - checkout
+    - attach_workspace:
+        at: ~/web
     - run:
         name: Github Pages Deploy
         command: |
-          ls /tmp/build/
+          ls
 
 workflows:
   version: 2
