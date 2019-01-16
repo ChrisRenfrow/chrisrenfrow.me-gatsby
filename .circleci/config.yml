@@ -41,6 +41,8 @@ jobs:
     - run:
         name: Github Pages Deploy
         command: |
+          git config --global user.email "mail@chrisrenfrow.me"
+          git config --global user.name "Chris Renfrow"
           git checkout gh-pages
           cp -r public/* .
           rm -rf public/
