@@ -39,9 +39,10 @@ jobs:
         name: Github Pages Deploy
         command: |
           git checkout gh-pages
-          ls
           cp -r public/* .
-          git diff
+          rm -rf public/
+          git commit -am "Automated deploy - ${CIRCLE_SHA1}"
+          git push origin gh-pages
 
 workflows:
   version: 2
