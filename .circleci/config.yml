@@ -39,8 +39,8 @@ jobs:
     - attach_workspace:
         at: /tmp/web
     - run:
-        name: Add Github.com to known_hosts # Not recommended
-        command: ssh-keyscan -H github.com >> ~/.ssh/config
+        name: Add Github.com to known_hosts # !!! Not recommended !!!
+        command: ssh-keyscan github.com >> ~/.ssh/config
     - run:
         name: Configure Git
         command: |
