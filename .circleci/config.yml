@@ -2,7 +2,7 @@ version: 2
 
 jobs:
 
-  build:
+  build-static:
     docker:
     - image: circleci/node:latest
     working_directory: /tmp/web
@@ -12,10 +12,8 @@ jobs:
         keys:
         - dependencies-{{ checksum "package.json" }}
         - dependencies-
-
     - run:
         command: yarn
-
     - save_cache:
         paths:
         - node_modules
@@ -28,7 +26,7 @@ jobs:
         - public/*
         - .git/*
 
-  deploy:
+  deploy-to-gh-pages:
     docker:
     - image: circleci/node:latest
     working_directory: /tmp/web
@@ -54,7 +52,7 @@ jobs:
           git checkout gh-pages
           cp -r public/* .
           rm -rf public/
-          git commit -am "Automated deploy from build \#${CIRCLE_BUILD_NUM}"
+          git commit -am "Automated deploy ${CIRCLE_BUILD_NUM} (${CIRCLE_BUILD_URL})"
           git push origin gh-pages
 
 workflows:
@@ -62,16 +60,16 @@ workflows:
 
   build:
     jobs:
-    - build:
+    - build-static:
         filters:
           branches:
             only: 
             - master
             - /feature-.*/
 
-    - deploy:
+    - deploy-to-gh-pages:
         requires:
-        - build
+        - build-static
         filters:
           branches:
             only: master
