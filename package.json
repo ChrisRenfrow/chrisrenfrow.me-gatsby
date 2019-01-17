@@ -3,12 +3,13 @@
   "description": "Gatsby hello world starter",
   "license": "MIT",
   "scripts": {
+    "start": "yarn develop",
     "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "gh-pages -d public",
-    "ci": "yarn build"
+    "lint": "eslint src/*/*.js gatsby-config.js",
+    "test": "echo \"No tests configured!\"\n",
+    "build": "gatsby build",
+    "ci": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
@@ -33,6 +34,14 @@
     "typography-theme-stern-grove": "^0.16.18"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.3",
+    "eslint-plugin-standard": "^4.0.0",
     "gh-pages": "^2.0.1"
   }
 }
