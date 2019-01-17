@@ -52,7 +52,7 @@ jobs:
           git checkout gh-pages
           cp -r public/* .
           rm -rf public/
-          git commit -am "Automated deploy ${CIRCLE_BUILD_NUM} (${CIRCLE_BUILD_URL})"
+          git add . && git commit -m "Automated deploy ${CIRCLE_BUILD_NUM} (${CIRCLE_BUILD_URL})"
           git push origin gh-pages
 
 workflows:
