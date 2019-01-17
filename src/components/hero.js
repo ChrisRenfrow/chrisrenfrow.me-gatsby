@@ -1,13 +1,10 @@
-import React from "react"
-import { css } from "@emotion/core"
-import { StaticQuery, Link, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
-import { Helmet } from "react-helmet"
-import Img from "gatsby-image"
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 export default ({ data }) => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
             query {
                 file(relativePath: { regex: "/crenfrow-hero-placeholder/" }) {
                     childImageSharp {
@@ -18,22 +15,22 @@ export default ({ data }) => (
                 }
             }
         `}
-        render={data => (
-        <div>
-            <div css={{ 
-                width: "100%", 
-                height: "auto", 
-                position: "relative",
-                overflow: "hidden"
-            }}>
-                <Img 
-                    fluid={data.file.childImageSharp.fluid} 
-                    css={{
-                        position: "absolute"
-                    }}
-                />
-            </div>
+    render={data => (
+      <div>
+        <div css={{
+          width: '100%',
+          height: 'auto',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <Img
+            fluid={data.file.childImageSharp.fluid}
+            css={{
+              position: 'absolute'
+            }}
+          />
         </div>
-        )}
-    />
+      </div>
+    )}
+  />
 )
