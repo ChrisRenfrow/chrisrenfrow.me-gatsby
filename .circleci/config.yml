@@ -39,8 +39,10 @@ jobs:
     - attach_workspace:
         at: /tmp/web
     - run:
-        name: Add Github.com to known_hosts # !!! Not recommended !!!
-        command: ssh-keyscan github.com >> ~/.ssh/config
+        name: Add Github.com to known_hosts
+          # !!! Not recommended !!! 
+          # https://www.freebsd.org/cgi/man.cgi?query=ssh-keyscan&manpath=SuSE+Linux/i386+11.3#security
+        command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     - run:
         name: Configure Git
         command: |
