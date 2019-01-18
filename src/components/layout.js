@@ -1,31 +1,21 @@
 import React from 'react'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { rhythm } from '../utils/typography'
 
-const ListLink = props => (
-  <li css={{
-    marginRight: `1rem`,
-    marginBottom: rhythm(1),
-    display: 'inline-block',
-    fontStyle: 'normal'
-  }}>
-    <Link to={props.to}>
-      {props.children}
-    </Link>
-  </li>
-)
+import Header from './header'
 
-export default ({ pageTitle, children }) => (
+const Layout = ({ pageTitle, children }) => (
   <StaticQuery
     query={graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }`
+      query SiteTitleQuery {
+          site {
+              siteMetadata {
+                  title
+              }
+          }
+      }`
     }
     render={ data => (
       <div
@@ -44,37 +34,20 @@ export default ({ pageTitle, children }) => (
             (pageTitle !== undefined) ? `${ pageTitle }/` : ``
           }`}/>
         </Helmet>
-        <div css={{ overflow: 'hidden' }}>
-          <ul
-            css={{
-              float: 'right',
-              display: 'inline-block',
-              margin: `${ rhythm(1) } auto`,
-            }}
-          >
-            <ListLink to="/">Home</ListLink>
-            {/* <ListLink to="/about/">About</ListLink> */}
-            {/* <ListLink to="/blog/">Blog</ListLink> */}
-            {/* <ListLink to="/projects/">Projects</ListLink> */}
-          </ul>
-          <Link to="/">
-            <h2
-              css={{
-                margin: `${ rhythm(1) } auto`,
-                display: 'inline-block',
-                fontStyle: 'normal'
-              }}
-            >
-              {data.site.siteMetadata.title}{
-                (pageTitle !== undefined) ? ` - ${ pageTitle }` : ``
-              }
-            </h2>
-          </Link>
+        <Header props={{
+          siteTitle: data.site.siteMetadata.title,
+          pageTitle: pageTitle
+        }}/>
+        <div>
+          {children}
         </div>
-        <hr />
-        {children}
       </div>
-    )
-    }
+    )}
   />
 )
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout

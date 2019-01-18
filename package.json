@@ -7,7 +7,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "lint": "eslint src/*/*.js gatsby-config.js",
-    "test": "echo \"No tests configured!\"\n",
+    "test": "jest",
     "build": "gatsby build",
     "ci": "yarn lint && yarn test && yarn build"
   },
@@ -34,14 +34,24 @@
     "typography-theme-stern-grove": "^0.16.18"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-preset-gatsby": "^0.1.6",
     "eslint": "^5.12.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.3",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.3",
     "eslint-plugin-standard": "^4.0.0",
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "jest-dom": "^3.0.0",
+    "react-test-renderer": "^16.7.0",
+    "react-testing-library": "^5.4.4"
   }
 }

@@ -1,0 +1,10 @@
+import React from 'react'
+import renderer from 'react-test-renderer'
+import Resume from '../resume'
+
+describe('Resume', () => {
+  it('renders correctly', () => {
+    const tree = renderer.create(<Resume />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
