@@ -2,7 +2,7 @@ version: 2
 
 jobs:
 
-  build-static:
+  build-and-test:
     docker:
     - image: circleci/node:latest
     working_directory: /tmp/web
@@ -13,13 +13,24 @@ jobs:
         - dependencies-{{ checksum "package.json" }}
         - dependencies-
     - run:
+        name: Install Dependencies
         command: yarn
     - save_cache:
         paths:
         - node_modules
         key: dependencies-{{ checksum "package.json" }}
     - run:
-        command: yarn ci
+        name: Setup Code Climate test-reporter # cache me?
+        command: |
+            # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+    - run:
+        name: Run Linting and Tests
+        command: |
+            ./cc-test-reporter before-build
+            yarn ci
+            ./cc-test-reporter after-build --exit-code $?
     - persist_to_workspace:
         root: /tmp/web
         paths:
@@ -60,7 +71,7 @@ workflows:
 
   build:
     jobs:
-    - build-static:
+    - build-and-test:
         filters:
           branches:
             only: 
@@ -69,7 +80,7 @@ workflows:
 
     - deploy-to-gh-pages:
         requires:
-        - build-static
+        - build-and-test
         filters:
           branches:
             only: master
