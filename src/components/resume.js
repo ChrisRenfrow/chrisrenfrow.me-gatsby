@@ -183,7 +183,7 @@ export default ({ data }) => (
         subtitle="Findable"
         start="July 2019"
         body={
-          `A platform that makes renting to or leasing from anyone as easy and painless a it should be.
+          `A platform that makes renting to or leasing from anyone as easy and painless as it should be.
           \nLearn more at [findable.net](https://findable.net)`
         }
       />
