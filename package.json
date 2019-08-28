@@ -30,6 +30,8 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
+    "remarkable": "^2.0.0",
+    "remarkable-react": "^1.4.1",
     "typography": "^0.16.18",
     "typography-theme-stern-grove": "^0.16.18"
   },
