@@ -93,9 +93,9 @@ const ContactMethod = props => (
 const DateRange = props => {
   let range = ''
   let { start, end } = props
-  let startDate = new Date(start);
+  let startDate = new Date(start)
   let endDate = (end) ? new Date(end) : new Date()
-  let diffYears = 0;
+  let diffYears = 0
   let dateOptions = { year: 'numeric', month: 'short' }
 
   if (startDate && endDate) {
@@ -106,20 +106,19 @@ const DateRange = props => {
   }
 
   if (start && end) {
-    if (String(start) === String(end))
-      range = `${ startDate.toLocaleDateString("en-US", dateOptions) }`
-    else
-      range = `${ startDate.toLocaleDateString("en-US", dateOptions) } - ` +
-        `${ endDate.toLocaleDateString("en-US", dateOptions) }`
+    if (String(start) === String(end)) { range = `${ startDate.toLocaleDateString('en-US', dateOptions) }` } else {
+      range = `${ startDate.toLocaleDateString('en-US', dateOptions) } - ` +
+        `${ endDate.toLocaleDateString('en-US', dateOptions) }`
+    }
   } else if (start) {
-    range = `${ startDate.toLocaleDateString("en-US", dateOptions) } - Present`
+    range = `${ startDate.toLocaleDateString('en-US', dateOptions) } - Present`
   } else {
     return null
   }
-  
-  range += (diffYears !== 0) ? 
-    ` (${diffYears} ${(diffYears > 1) ? 'years' : 'year'})`
-    : ""
+
+  range += (diffYears !== 0)
+    ? ` (${ diffYears } ${ (diffYears > 1) ? 'years' : 'year' })`
+    : ''
 
   return (<h4 css={{ marginTop: rhythm(0) }}>{ range }</h4>)
 }
@@ -132,7 +131,7 @@ const Entry = props => (
     <h5
       css={{ marginTop: rhythm(0) }}
     >{props.subtitle}</h5>
-    { console.log(`Parsing ${props.title} - ${props.subtitle} start and end dates`)}
+    { console.log(`Parsing ${ props.title } - ${ props.subtitle } start and end dates`)}
     <DateRange start={props.start} end={props.end} />
     { md.render(props.body) }
   </div>
@@ -152,17 +151,17 @@ export default ({ data }) => (
       title="Contact"
     >
       <div style={{
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        width: "100%",
-        justifyContent: "center",
-        alignContent: "center",
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        width: '100%',
+        justifyContent: 'center',
+        alignContent: 'center',
       }}>
         <div style={{
-          display: "flex",
-          flexDirection: "column",
-          flexBasis: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          flexBasis: '100%',
           flex: 1
         }}>
           <ContactMethod
@@ -177,9 +176,9 @@ export default ({ data }) => (
           />
         </div>
         <div style={{
-          display: "flex",
-          flexDirection: "column",
-          flexBasis: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          flexBasis: '100%',
           flex: 1
         }}>
           <ContactMethod
@@ -204,15 +203,15 @@ export default ({ data }) => (
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <Skill title="Node.js"    percentage=".75" />
-        <Skill title="Firebase"   percentage=".75" />
-        <Skill title="C"          percentage=".75" />
-        <Skill title="Bash"       percentage=".75" />
-        <Skill title="GNU/Linux"  percentage=".75" />
-        <Skill title="React"      percentage=".50" />
-        <Skill title="Python"     percentage=".50" />
-        <Skill title="Golang"     percentage=".50" />
-        <Skill title="Security"   percentage=".33" />
+        <Skill title="Node.js" percentage=".75" />
+        <Skill title="Firebase" percentage=".75" />
+        <Skill title="C" percentage=".75" />
+        <Skill title="Bash" percentage=".75" />
+        <Skill title="GNU/Linux" percentage=".75" />
+        <Skill title="React" percentage=".50" />
+        <Skill title="Python" percentage=".50" />
+        <Skill title="Golang" percentage=".50" />
+        <Skill title="Security" percentage=".33" />
       </div>
     </ResumeContainer>
     <ResumeContainer
