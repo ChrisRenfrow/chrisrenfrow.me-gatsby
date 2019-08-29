@@ -89,20 +89,22 @@ const ContactMethod = props => (
 )
 
 // TODO: Move some of this out as a utility/helper
-// TODO: If month diff < 12, show month diff instead of years
 const DateRange = props => {
   let range = ''
   let { start, end } = props
   let startDate = new Date(start)
   let endDate = (end) ? new Date(end) : new Date()
-  let diffYears = 0
+  let duration = {}
   let dateOptions = { year: 'numeric', month: 'short' }
 
   if (startDate && endDate) {
     let diffTime = Math.abs(startDate.getTime() - endDate.getTime())
     let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
     let diffMonths = Math.ceil(diffDays / (7 * 4))
-    diffYears = Math.ceil(diffMonths / 12)
+    let diffYears = Math.ceil(diffMonths / 12)
+    duration = (diffMonths < 12)
+      ? { value: diffMonths - 1, unit: 'month' }
+      : { value: diffYears - 1, unit: 'year' }
   }
 
   if (start && end) {
@@ -116,8 +118,8 @@ const DateRange = props => {
     return null
   }
 
-  range += (diffYears !== 0)
-    ? ` (${ diffYears } ${ (diffYears > 1) ? 'years' : 'year' })`
+  range += (duration.value > 0)
+    ? ` (${ duration.value } ${ (duration.value > 1) ? duration.unit + 's' : duration.unit })`
     : ''
 
   return (<h4 css={{ marginTop: rhythm(0) }}>{ range }</h4>)
