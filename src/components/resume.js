@@ -131,7 +131,6 @@ const Entry = props => (
     <h5
       css={{ marginTop: rhythm(0) }}
     >{props.subtitle}</h5>
-    { console.log(`Parsing ${ props.title } - ${ props.subtitle } start and end dates`)}
     <DateRange start={props.start} end={props.end} />
     { md.render(props.body) }
   </div>
