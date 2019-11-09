@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Chris Renfrow`,
+    author: `Chris Renfrow`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,7 +14,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-logo.png`,
+        icon: `content/assets/simple-logo.png`,
       }
     },
     `gatsby-plugin-offline`,
@@ -27,8 +28,26 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${ __dirname }/src/images`
+        name: `assets`,
+        path: `${ __dirname }/content/assets`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${ __dirname }/content/blog`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-images`,
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`
+        ]
       }
     },
     `gatsby-plugin-sharp`,

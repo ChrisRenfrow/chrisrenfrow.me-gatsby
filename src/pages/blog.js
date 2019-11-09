@@ -1,11 +1,60 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-export default ({ data }) => (
-  <Layout pageTitle="Blog">
-    <p>Home to my personal blog.</p>
-    <p>Coming soon!</p>
-    <p><Link to="/">Go Home</Link></p>
-  </Layout>
-)
+
+export default ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
+  return (
+    <Layout pageTitle="Blog">
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <article key={node.fields.slug}>
+            <header>
+              <h3 style={{}}>
+                <Link style={{}} to={node.fields.slug}>
+                  {title}
+                </Link>
+              </h3>
+              <small>{node.frontmatter.date}</small>
+            </header>
+            <section>
+              <p 
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </section>
+          </article>
+        )
+      })}
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date(formatString: "DD MMMM YYYY")
+              title
+              description
+            }
+          }
+        }
+      }
+    }
+`

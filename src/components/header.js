@@ -26,7 +26,7 @@ export default ({ props }) => (
     >
       <ListLink to="/">Home</ListLink>
       {/* <ListLink to="/about/">About</ListLink> */}
-      {/* <ListLink to="/blog/">Blog</ListLink> */}
+      <ListLink to="/blog/">Blog</ListLink>
       {/* <ListLink to="/projects/">Projects</ListLink> */}
     </ul>
     <Link to="/">
