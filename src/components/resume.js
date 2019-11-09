@@ -143,7 +143,7 @@ export default ({ data }) => (
     <ResumeContainer
       title="Summary"
       body={
-        `Hey there! I'm a software developer with over 2 years of professional experience working remotely on full-stack solutions for clients with big ideas. In my free time you'll find me planning my break into security, preparing for the next [DEF CON](https://defcon.org/), or figuring out a way to automate something in my day-to-day life.
+        `Hey there! I'm a software developer with over 2 years of professional experience working remotely for clients with big ideas. In my free time you'll find me planning my break into security, preparing for the next [DEF CON](https://defcon.org/), or figuring out a way to automate something in my day-to-day life.
         \nI am currently open to additional opportunities/clients. If you are interested in the services I provide please feel free to reach out to me using one of the [methods](#contact) below.`
       }
     />
@@ -225,7 +225,7 @@ export default ({ data }) => (
         start="2019-07"
         body={
           `A platform that makes renting to or leasing from anyone as easy and painless as it should be.
-          \nLearn more at [findable.net](https://findable.net)`
+          \nLearn more at [findable.net](https://findable.net).`
         }
       />
 
@@ -257,7 +257,7 @@ export default ({ data }) => (
         start="2018"
         body={
           `My personal website and blog. Made with React and Gatsby.js to achieve all the performance benefits of a static website while still using modern web-development standards.
-          \nCheck it out on [github](https://github.com/ChrisRenfrow/chrisrenfrow.me)`
+          \nCheck it out on [github](https://github.com/ChrisRenfrow/chrisrenfrow.me).`
         }
       />
       <Entry
