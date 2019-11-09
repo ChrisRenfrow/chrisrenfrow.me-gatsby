@@ -6,7 +6,7 @@
     "start": "yarn develop",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "lint": "eslint src/*/*.js gatsby-config.js",
+    "lint": "eslint *.js",
     "test": "jest --coverage",
     "build": "gatsby build",
     "ci": "yarn lint && yarn test && yarn build"
