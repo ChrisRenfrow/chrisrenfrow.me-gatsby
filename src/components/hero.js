@@ -5,15 +5,15 @@ import Img from 'gatsby-image'
 export default ({ data }) => (
   <StaticQuery
     query={graphql`
-            query {
-                file(relativePath: { regex: "/crenfrow-hero-placeholder/" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 800) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
+  query {
+      file(relativePath: { regex: "/crenfrow-hero-placeholder/" }) {
+          childImageSharp {
+              fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
+  }
         `}
     render={data => (
       <div>

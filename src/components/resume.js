@@ -204,8 +204,7 @@ export default ({ data }) => (
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <Skill title="Node.js" percentage=".75" />
-        <Skill title="Firebase" percentage=".75" />
+        <Skill title="JavaScript" percentage=".75" />
         <Skill title="C" percentage=".75" />
         <Skill title="Bash" percentage=".75" />
         <Skill title="GNU/Linux" percentage=".75" />
